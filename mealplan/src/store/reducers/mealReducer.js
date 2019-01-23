@@ -1,6 +1,6 @@
 const initState = {};
 
-const mealReducer = (stte = initState, action) => {
+const mealReducer = (state = initState, action) => {
   return state;
 };
 
