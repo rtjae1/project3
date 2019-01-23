@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createMeal } from "../../store/actions/mealActions";
 
 class CreateMeal extends Component {
   state = {
@@ -12,7 +14,8 @@ class CreateMeal extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
+    this.props.createMeal(this.state);
   };
   render() {
     return (
@@ -40,4 +43,13 @@ class CreateMeal extends Component {
   }
 }
 
-export default CreateMeal;
+const mapDispatchToProps = dispatch => {
+  return {
+    createMeal: meal => dispatch(createMeal(meal))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreateMeal);

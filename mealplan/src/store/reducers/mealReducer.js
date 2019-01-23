@@ -7,6 +7,10 @@ const initState = {
 };
 
 const mealReducer = (state = initState, action) => {
+  switch (action.type) {
+    case "CREATE_MEAL":
+      console.log("created meal", action.meal);
+  }
   return state;
 };
 
