@@ -8,7 +8,7 @@ const SignedOutLinks = () => {
         <NavLink to="/">Sign Up</NavLink>
       </li>
       <li>
-        <NavLink to="/">Login</NavLink>
+        <NavLink to="/">Sign In</NavLink>
       </li>
     </ul>
   );
