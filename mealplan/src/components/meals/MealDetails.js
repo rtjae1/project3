@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
+import moment from "moment";
 
 const MealDetails = props => {
   const { meal, auth } = props;
@@ -19,7 +20,7 @@ const MealDetails = props => {
             <div>
               Posted by {meal.authorFirstName} {meal.authorLastName}
             </div>
-            <div>January 23</div>
+            <div>{moment(meal.createdAt.toDate()).calendar()}</div>
           </div>
         </div>
       </div>
@@ -27,7 +28,7 @@ const MealDetails = props => {
   } else {
     return (
       <div className="container center">
-        <p>Loading mealz..</p>
+        <p>Loading meals...</p>
       </div>
     );
   }
