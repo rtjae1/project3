@@ -17,6 +17,7 @@ class CreateMeal extends Component {
     e.preventDefault();
     // console.log(this.state);
     this.props.createMeal(this.state);
+    this.props.history.push("/");
   };
   render() {
     const { auth } = this.props;
