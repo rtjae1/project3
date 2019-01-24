@@ -4,11 +4,13 @@ import MealList from "../meals/MealList";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import { Redirect } from "react-router-dom";
 
 class Dashboard extends Component {
   render() {
     // console.log(this.props);
-    const { meals } = this.props;
+    const { meals, auth } = this.props;
+    if (!auth.uid) return <Redirect to="/signin" />;
     return (
       <div className="dashboard container">
         <div className="row">
@@ -26,7 +28,7 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => {
   console.log(state);
-  return { meals: state.firestore.ordered.meals };
+  return { meals: state.firestore.ordered.meals, auth: state.firebase.auth };
 };
 
 export default compose(
